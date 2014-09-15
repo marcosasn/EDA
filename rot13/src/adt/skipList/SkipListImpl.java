@@ -164,4 +164,29 @@ public class SkipListImpl<V> implements SkipList<V> {
 		}
 		return array;
 	}
+	
+	public SkipNode<V>[] toArray2() {
+		SkipNode<V> [] array = new SkipNode[this.size()];
+		SkipNode<V> node = root.getForward(0);
+		int i = 0;
+		while(!node.equals(NIL)) {
+			array[i++] = node;
+			node = node.getForward(0);
+		}
+		return array;
+	}
+	
+	public SkipNode<V>[] toArray3() {
+		SkipNode<V> [] array = new SkipNode[this.size()];
+		int i = 0;
+		for (int j = level-1; j >= 0; j--) {
+			SkipNode<V> node = root;
+			while (node.getForward(j).height == j) {
+				array[i++] = node;
+				node = node.getForward(j);
+			}
+			node = node.getForward(j);
+		}
+		return array;
+	}
 }

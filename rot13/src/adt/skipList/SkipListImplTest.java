@@ -25,7 +25,7 @@ public class SkipListImplTest {
 
 	@Test
 	public void testInsert() {
-		for (int i = 1; i <= 7; i++) {
+		for (int i = 1; i <= 8; i++) {
 			skipList1.insert(i, i);
 		}
 		
@@ -34,5 +34,23 @@ public class SkipListImplTest {
 		System.out.println("size: " + skipList1.size());
 		System.out.println("height: " + skipList1.height());
 		System.out.println("toArray: " + Arrays.asList(skipList1.toArray()));
+		System.out.println("toArray2: " + Arrays.asList(skipList1.toArray2()));
+		//System.out.println("toArray3: " + Arrays.asList(skipList1.toArray3()));
+	}
+	
+	@Test
+	public void testInsert2() {
+		int numbers[] = {4,8,12,14,17,18,21,25};
+		for (int number: numbers) {
+			skipList1.insert(number, number);
+		}
+		
+		System.out.println("\nsearch(4): " + skipList1.search(4));
+		System.out.println("search(20): " + skipList1.search(20));
+		System.out.println("size: " + skipList1.size());
+		System.out.println("height: " + skipList1.height());
+		System.out.println("toArray: " + Arrays.asList(skipList1.toArray()));
+		System.out.println("toArray2: " + Arrays.asList(skipList1.toArray2()));
+		System.out.println("toArray3: " + Arrays.asList(skipList1.toArray3()));
 	}
 }
